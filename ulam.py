@@ -23,42 +23,42 @@ def is_prime(n):
 
 def draw(WIDTH, HEIGHT):
  
- surface = cairo.ImageSurface (cairo.FORMAT_ARGB32, WIDTH, HEIGHT)
- ctx = cairo.Context (surface)
-
- #set background color to black
- ctx.set_source_rgb(0,0,0)
- #create rectangle for background
- ctx.rectangle (0, 0, WIDTH, HEIGHT)
- #fill
- ctx.fill()
- ctx.set_source_rgb(0,1,1)
+	surface = cairo.ImageSurface (cairo.FORMAT_ARGB32, WIDTH, HEIGHT)
+	ctx = cairo.Context (surface)
+	
+	#set background color to black
+ 	ctx.set_source_rgb(0,0,0)
+ 	#create rectangle for background
+ 	ctx.rectangle (0, 0, WIDTH, HEIGHT)
+ 	#fill
+ 	ctx.fill()
+ 	ctx.set_source_rgb(0,1,1)
  
- x = WIDTH/2
- y = HEIGHT/2
+ 	x = WIDTH/2
+ 	y = HEIGHT/2
  
- pix_num = 1
- arm_length = 1
+ 	pix_num = 1
+ 	arm_length = 1
  
- while pix_num <= (WIDTH*HEIGHT):
-  i = 1
-  while i <= arm_length:
-   if (arm_length%4) == 1:
-    x += 1
-   elif (arm_length%4) == 2:
-    y +=1
-   elif (arm_length%4) == 3:
-    x -= 1 
-   else:
-    y -= 1
-   if is_prime(pix_num) == True:
-    ctx.rectangle(x,y,1,1)
-           ctx.fill()
-   i += 1
-   pix_num += 1
-  arm_length += 1
+ 	while pix_num <= (WIDTH*HEIGHT):
+  		i = 1
+ 		while i <= arm_length:
+   			if (arm_length%4) == 1:
+    				x += 1
+   			elif (arm_length%4) == 2:
+    				y +=1
+   			elif (arm_length%4) == 3:
+    				x -= 1 
+   			else:
+    				y -= 1
+   			if is_prime(pix_num) == True:
+    				ctx.rectangle(x,y,1,1)
+           			ctx.fill()
+   			i += 1
+   			pix_num += 1
+  		arm_length += 1
   
- surface.write_to_png ("ulam.png")
+surface.write_to_png ("ulam.png")
 
 
 draw(1000,1000)
